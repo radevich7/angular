@@ -1,0 +1,27 @@
+<h2>This is the Users Components</h2>
+<!-- <button [routerLink]="["/add-user"]">Add User </button> -->
+<button [routerLink]="['/add-user']">Add User</button>
+<table class="table">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+  </tr>
+  <tr
+    [ngClass]="e ? 'even' : 'odd'"
+    *ngFor="let user of usersList; let e = even; let o = odd; let i = index"
+  >
+    <td>{{ user.id }}</td>
+    <td>{{ user.name }}</td>
+    <td>{{ user.email }}</td>
+
+    <td>{{ user.phone }}</td>
+    <!-- <td><button (click)="selectUser(user)">Select</button></td> -->
+    <td><button [routerLink]="['/users', user.id]">Select</button></td>
+  </tr>
+</table>
+<app-user
+  [user]="selectedUser"
+  (updateUser)="handleUpdateUser($event)"
+></app-user>

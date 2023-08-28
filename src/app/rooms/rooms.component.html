@@ -1,0 +1,12 @@
+<h1>App-Rooms</h1>
+
+<h2>Total Number of rooms {{ numberRooms }}</h2>
+<button (click)="addRoom()">Add Room</button>
+<div *ngIf="selectedRoom">{{ selectedRoom | json }}</div>
+
+<app-rooms-list
+  (selectedRoom)="selectRoom($event)"
+  [rooms]="roomList"
+  [title]="title"
+></app-rooms-list>
+<button (click)="toggle()">Toggle</button>

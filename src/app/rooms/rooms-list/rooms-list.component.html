@@ -1,0 +1,35 @@
+<h2>App-Room List</h2>
+
+<h2>{{ title }}</h2>
+
+<table class="table">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Address</th>
+    <th>Phone</th>
+    <th>photos</th>
+    <th>checkInTime</th>
+    <th>checkOutTime</th>
+    <th>checkOutTime</th>
+  </tr>
+  <tr
+    [ngClass]="e ? 'even' : 'odd'"
+    *ngFor="let room of rooms; let e = even; let o = odd; let i = index"
+  >
+    <td>{{ i }}</td>
+    <td>{{ e ? "Even" : "Odd" }}</td>
+    <td>{{ room.roomNumber }}</td>
+    <td>{{ room.amenities | titlecase }}</td>
+    <td>{{ room.price | currency }}</td>
+    <td>{{ room.photos }}</td>
+    <td>{{ room.checkInTime | date : "short" }}</td>
+    <td>{{ room.checkOutTime | date : "short" }}</td>
+    <td>
+      <button class="btn btn-secondary" (click)="selectRoom(room)">
+        Reserve
+      </button>
+    </td>
+  </tr>
+</table>
