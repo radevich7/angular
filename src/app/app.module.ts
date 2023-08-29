@@ -19,6 +19,7 @@ import { InitService } from './init.service';
 import { UsersDetailsComponent } from './users/users-details/users-details.component';
 import { FormsModule } from '@angular/forms';
 import { UserAddComponent } from './users/user-add/user-add.component';
+import { LoginComponent } from './login/login.component';
 
 function initFactory(initService: InitService) {
   return () => initService.initApp();
@@ -34,6 +35,7 @@ function initFactory(initService: InitService) {
     PhotosComponent,
     UsersDetailsComponent,
     UserAddComponent,
+    LoginComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [
